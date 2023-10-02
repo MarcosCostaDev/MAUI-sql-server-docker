@@ -37,6 +37,7 @@ public partial class TodoViewModel : ObservableObject
         if(TaskItemId > 0)
         {
             TodoRepository.Update(TaskItemId, TaskItem);
+            TaskItemId = 0;
         }
         else
         {

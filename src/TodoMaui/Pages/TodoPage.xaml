@@ -16,8 +16,8 @@
                 TrueObject="0.8" />
             <toolkit:BoolToObjectConverter
                 x:Key="DoneStatusConverter"
-                FalseObject="Done?"
-                TrueObject="Done!" />
+                FalseObject="Done❓"
+                TrueObject="Done ✔️" />
             <toolkit:BoolToObjectConverter
                 x:Key="DoneStatusBackgroundConverter"
                 FalseObject="{StaticResource Secondary}"
@@ -51,12 +51,15 @@
                         Margin="0,2.5"
                         ColumnDefinitions="*, 100, 100, 100"
                         ColumnSpacing="5"
-                        Opacity="{Binding Done, Converter={StaticResource DoneOpacityConverter}}">
+                        Opacity="{Binding Done, Converter={StaticResource DoneOpacityConverter}}"
+                        RowDefinitions="*,50"
+                        RowSpacing="0">
 
                         <Label
                             Grid.Column="0"
+                            FontSize="Small"
                             Text="{Binding Task}"
-                            VerticalTextAlignment="Center" />
+                            VerticalTextAlignment="End" />
                         <Button
                             Grid.Column="1"
                             BackgroundColor="{DynamicResource Secondary}"
@@ -78,6 +81,19 @@
                             CommandParameter="{Binding .}"
                             Text="Remove"
                             TextColor="{DynamicResource White}" />
+
+                        <HorizontalStackLayout Grid.Row="1" Spacing="10">
+                            <Label
+                                FontSize="Body"
+                                Text="{Binding CreatedDate, StringFormat='{} Created Date: {0:g}'}"
+                                TextColor="{DynamicResource Blue100Accent}" />
+                            <Label
+                                FontSize="Body"
+                                IsVisible="{Binding UpdatedDate, Converter={toolkit:IsNotNullConverter}}"
+                                Text="{Binding UpdatedDate, StringFormat='{} Updated Date: {0:g}'}"
+                                TextColor="{DynamicResource Cyan100Accent}" />
+                        </HorizontalStackLayout>
+
                     </Grid>
                 </DataTemplate>
 
