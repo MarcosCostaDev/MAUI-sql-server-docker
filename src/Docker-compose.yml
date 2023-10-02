@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  db:
+    build: ./Database
+    ports:
+        - 1433:1433

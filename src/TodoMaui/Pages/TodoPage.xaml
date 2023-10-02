@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TodoMaui.Pages.TodoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:TodoMaui.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:TodoMaui.ViewModels"
+    Title="Todo App with SQL Server Connection!"
+    x:DataType="vm:TodoViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:BoolToObjectConverter
+                x:Key="DoneOpacityConverter"
+                FalseObject="1"
+                TrueObject="0.8" />
+            <toolkit:BoolToObjectConverter
+                x:Key="DoneStatusConverter"
+                FalseObject="Done?"
+                TrueObject="Done!" />
+            <toolkit:BoolToObjectConverter
+                x:Key="DoneStatusBackgroundConverter"
+                FalseObject="{StaticResource Secondary}"
+                TrueObject="{StaticResource Success}" />
+            <toolkit:BoolToObjectConverter
+                x:Key="DoneStatusTextColorConverter"
+                FalseObject="{StaticResource Tertiary}"
+                TrueObject="{StaticResource White}" />
+            <!--<toolkit:CompareConverter
+                x:Key="SaveButtonTextCompareConverter"
+                ComparingValue="0"
+                ComparisonOperator="Equal"
+                FalseObject="Update"
+                TrueObject="Save" />-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout Margin="10,5" Spacing="10">
+
+        <Grid ColumnDefinitions="*, 100" ColumnSpacing="5">
+            <Entry Grid.Column="0" Text="{Binding TaskItem}" />
+            <Button
+                Grid.Column="1"
+                Command="{Binding AddItemCommand}"
+                Text="Save" />
+        </Grid>
+
+        <CollectionView ItemsSource="{Binding Tasks}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:TaskItemModel">
+                    <Grid
+                        Margin="0,2.5"
+                        ColumnDefinitions="*, 100, 100, 100"
+                        ColumnSpacing="5"
+                        Opacity="{Binding Done, Converter={StaticResource DoneOpacityConverter}}">
+
+                        <Label
+                            Grid.Column="0"
+                            Text="{Binding Task}"
+                            VerticalTextAlignment="Center" />
+                        <Button
+                            Grid.Column="1"
+                            BackgroundColor="{DynamicResource Secondary}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=EditItemCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="Edit"
+                            TextColor="{DynamicResource Black}" />
+                        <Button
+                            Grid.Column="2"
+                            BackgroundColor="{Binding Done, Converter={StaticResource DoneStatusBackgroundConverter}}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=DoneItemCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="{Binding Done, Converter={StaticResource DoneStatusConverter}}"
+                            TextColor="{Binding Done, Converter={StaticResource DoneStatusTextColorConverter}}" />
+                        <Button
+                            Grid.Column="3"
+                            BackgroundColor="{DynamicResource Danger}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=DeleteItemCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="Remove"
+                            TextColor="{DynamicResource White}" />
+                    </Grid>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
