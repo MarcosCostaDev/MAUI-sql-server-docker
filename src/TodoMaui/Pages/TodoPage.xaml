@@ -26,12 +26,12 @@
                 x:Key="DoneStatusTextColorConverter"
                 FalseObject="{StaticResource Tertiary}"
                 TrueObject="{StaticResource White}" />
-            <!--<toolkit:CompareConverter
+            <toolkit:CompareConverter
                 x:Key="SaveButtonTextCompareConverter"
                 ComparingValue="0"
                 ComparisonOperator="Equal"
                 FalseObject="Update"
-                TrueObject="Save" />-->
+                TrueObject="Save" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <VerticalStackLayout Margin="10,5" Spacing="10">
@@ -41,7 +41,7 @@
             <Button
                 Grid.Column="1"
                 Command="{Binding AddItemCommand}"
-                Text="Save" />
+                Text="{Binding TaskItemId, Converter={StaticResource SaveButtonTextCompareConverter}}" />
         </Grid>
 
         <CollectionView ItemsSource="{Binding Tasks}">
