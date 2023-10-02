@@ -10,6 +10,7 @@
     x:DataType="vm:TodoViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <x:Int32 x:Key="ComparingValue">0</x:Int32>
             <toolkit:BoolToObjectConverter
                 x:Key="DoneOpacityConverter"
                 FalseObject="1"
@@ -28,7 +29,7 @@
                 TrueObject="{StaticResource White}" />
             <toolkit:CompareConverter
                 x:Key="SaveButtonTextCompareConverter"
-                ComparingValue="0"
+                ComparingValue="{StaticResource ComparingValue}"
                 ComparisonOperator="Equal"
                 FalseObject="Update"
                 TrueObject="Save" />
