@@ -1,10 +1,10 @@
 ﻿using Dapper;
 using System.Data;
-using TodoMaui.Models;
+using TodoMaui.Abstracts.Interfaces;
 
-namespace TodoMaui.Repositories;
+namespace TodoMaui.Pages.Todo;
 
-public class TodoRepository
+public class TodoRepository : IRepository
 {
     private readonly IDbConnection _dbConnection;
 

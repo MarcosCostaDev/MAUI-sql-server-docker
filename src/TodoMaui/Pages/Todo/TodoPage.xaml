@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="TodoMaui.Pages.TodoPage"
+<abstract:AbstractContentPage
+    x:Class="TodoMaui.Pages.Todo.TodoPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:TodoMaui.Models"
+    xmlns:abstract="clr-namespace:TodoMaui.Abstracts"
+    xmlns:model="clr-namespace:TodoMaui.Pages.Todo"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:vm="clr-namespace:TodoMaui.ViewModels"
     Title="Todo App with SQL Server Connection!"
     x:DataType="vm:TodoViewModel">
     <ContentPage.Resources>
@@ -100,4 +100,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
-</ContentPage>
+</abstract:AbstractContentPage>

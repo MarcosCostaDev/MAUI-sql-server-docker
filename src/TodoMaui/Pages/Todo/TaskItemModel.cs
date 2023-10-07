@@ -1,4 +1,4 @@
-﻿namespace TodoMaui.Models;
+﻿namespace TodoMaui.Pages.Todo;
 
 public class TaskItemModel
 {
