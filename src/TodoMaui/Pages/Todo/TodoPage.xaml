@@ -64,21 +64,21 @@
                         <Button
                             Grid.Column="1"
                             BackgroundColor="{DynamicResource Secondary}"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=EditItemCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type model:TodoViewModel}}, Path=EditItemCommand}"
                             CommandParameter="{Binding .}"
                             Text="Edit"
                             TextColor="{DynamicResource Black}" />
                         <Button
                             Grid.Column="2"
                             BackgroundColor="{Binding Done, Converter={StaticResource DoneStatusBackgroundConverter}}"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=DoneItemCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type model:TodoViewModel}}, Path=DoneItemCommand}"
                             CommandParameter="{Binding .}"
                             Text="{Binding Done, Converter={StaticResource DoneStatusConverter}}"
                             TextColor="{Binding Done, Converter={StaticResource DoneStatusTextColorConverter}}" />
                         <Button
                             Grid.Column="3"
                             BackgroundColor="{DynamicResource Danger}"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=DeleteItemCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type model:TodoViewModel}}, Path=DeleteItemCommand}"
                             CommandParameter="{Binding .}"
                             Text="Remove"
                             TextColor="{DynamicResource White}" />

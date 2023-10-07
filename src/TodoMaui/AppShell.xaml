@@ -4,13 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TodoMaui"
-    xmlns:pages="clr-namespace:TodoMaui.Pages"
+    xmlns:todo="clr-namespace:TodoMaui.Pages.Todo"
     Shell.FlyoutBehavior="Disabled">
 
 
     <ShellContent
         Title="Todo"
-        ContentTemplate="{DataTemplate pages:TodoPage}"
+        ContentTemplate="{DataTemplate todo:TodoPage}"
         Route="TodoPage" />
 
     <ShellContent
