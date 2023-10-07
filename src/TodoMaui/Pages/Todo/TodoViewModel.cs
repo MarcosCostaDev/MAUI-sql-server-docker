@@ -1,13 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using TodoMaui.Models;
-using TodoMaui.Repositories;
+using TodoMaui.Abstracts;
 
-namespace TodoMaui.ViewModels;
+namespace TodoMaui.Pages.Todo;
 
-public partial class TodoViewModel : ObservableObject
+public partial class TodoViewModel : AbstractViewModel
 {
 
     public TodoViewModel(TodoRepository repository)

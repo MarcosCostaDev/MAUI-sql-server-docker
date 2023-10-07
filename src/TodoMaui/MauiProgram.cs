@@ -2,9 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using System.Data;
-using TodoMaui.Pages;
-using TodoMaui.Repositories;
-using TodoMaui.ViewModels;
+using TodoMaui.Pages.Todo;
 
 namespace TodoMaui;
 

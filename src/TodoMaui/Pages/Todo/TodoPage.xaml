@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="TodoMaui.Pages.TodoPage"
+<abstract:AbstractContentPage
+    x:Class="TodoMaui.Pages.Todo.TodoPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:TodoMaui.Models"
+    xmlns:abstract="clr-namespace:TodoMaui.Abstracts"
+    xmlns:model="clr-namespace:TodoMaui.Pages.Todo"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:vm="clr-namespace:TodoMaui.ViewModels"
     Title="Todo App with SQL Server Connection!"
-    x:DataType="vm:TodoViewModel">
+    x:DataType="model:TodoViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Int32 x:Key="ComparingValue">0</x:Int32>
@@ -64,21 +64,21 @@
                         <Button
                             Grid.Column="1"
                             BackgroundColor="{DynamicResource Secondary}"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=EditItemCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type model:TodoViewModel}}, Path=EditItemCommand}"
                             CommandParameter="{Binding .}"
                             Text="Edit"
                             TextColor="{DynamicResource Black}" />
                         <Button
                             Grid.Column="2"
                             BackgroundColor="{Binding Done, Converter={StaticResource DoneStatusBackgroundConverter}}"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=DoneItemCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type model:TodoViewModel}}, Path=DoneItemCommand}"
                             CommandParameter="{Binding .}"
                             Text="{Binding Done, Converter={StaticResource DoneStatusConverter}}"
                             TextColor="{Binding Done, Converter={StaticResource DoneStatusTextColorConverter}}" />
                         <Button
                             Grid.Column="3"
                             BackgroundColor="{DynamicResource Danger}"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TodoViewModel}}, Path=DeleteItemCommand}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type model:TodoViewModel}}, Path=DeleteItemCommand}"
                             CommandParameter="{Binding .}"
                             Text="Remove"
                             TextColor="{DynamicResource White}" />
@@ -101,4 +101,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
-</ContentPage>
+</abstract:AbstractContentPage>
