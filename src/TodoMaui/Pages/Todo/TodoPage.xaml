@@ -7,7 +7,7 @@
     xmlns:model="clr-namespace:TodoMaui.Pages.Todo"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="Todo App with SQL Server Connection!"
-    x:DataType="vm:TodoViewModel">
+    x:DataType="model:TodoViewModel">
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Int32 x:Key="ComparingValue">0</x:Int32>
